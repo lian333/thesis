@@ -11,7 +11,7 @@ from sklearn.metrics import r2_score
 from pathlib import Path
 
 from sklearn.model_selection import RandomizedSearchCV
-folderpath=Path(r'Dataanalyse\model')
+folderpath=Path(r'Dataanalyse\newmodel')
 
 def apply_scaler(X_tr, Y_tr, X_te, Y_te):
     # Scalers for X and Y, fit on training data
@@ -28,10 +28,10 @@ def apply_scaler(X_tr, Y_tr, X_te, Y_te):
     return X_tr_scaled, Y_tr_scaled, X_te_scaled, Y_te_scaled, X_sc, Y_sc
 
 def select( X_tr, X_te, Y_tr, Y_te ):
-    X_tr1= X_tr.head(800)
-    X_te1= X_te.head(200)
-    Y_tr1 = Y_tr.head(800)
-    Y_te1 = Y_te.head(200)
+    X_tr1= X_tr#.head(800)
+    X_te1= X_te#.head(200)
+    Y_tr1 = Y_tr#.head(800)
+    Y_te1 = Y_te#.head(200)
     return X_tr1, X_te1,Y_tr1,Y_te1
 def test_model_matrix_random_search(X, Y, random_state=None, n_iter=100):
     """
@@ -107,7 +107,7 @@ def test_model_matrix_random_search(X, Y, random_state=None, n_iter=100):
 
 if __name__ == "__main__":
 
-    data = pd.read_csv(r'Dataanalyse\axis2_demo_tablepart1_0.csv')
+    data = pd.read_csv(r'Dataanalyse\all_data_axis1.csv')
 
     #data = data.head(1000)
     cols = ['Mittelwert_x', 'Mittelwert_y', 'Mittelwert_z',
@@ -123,7 +123,7 @@ if __name__ == "__main__":
     Y=pd.DataFrame(data['Schadensklasse'])
 
     # loop over multiple random states
-    states = np.random.randint(1000, size=100)
+    states = np.random.randint(1000, size=10)
     results = []
     newresults=pd.DataFrame
 
@@ -147,7 +147,7 @@ if __name__ == "__main__":
                 f"{best_result_list[-2]:.4f}_d{best_result_list[2]}-a{best_result_list[1]:.2f}-rs{best_result_list[0]}"
                 )
     # save the model with the best result
-    folderpath=Path(r'Dataanalyse\model')
+    folderpath=Path(r'Dataanalyse\newmodel')
     print(f"Saving model to {folderpath}...")
     pickle.dump(
         best_result_model, open(folderpath.joinpath(f"{name}.p"), "wb")

@@ -1,0 +1,35 @@
+Best score: 0.9812540977484169
+	colsample_bytree: 0.5
+	gamma: 2
+	learning_rate: 0.4299999999999998
+	max_depth: 68
+	n_estimators: 900
+	subsample: 0.6000000000000001
+Top 10 important features:
+Median_z: 0.7289
+Mittelwert_x: 0.0795
+Effektivwert_z: 0.0638
+Mittelwert_z: 0.0551
+Variance_z: 0.0144
+Effektivwert_y: 0.0081
+Standardabweichung_x: 0.0072
+Standardabweichung_z: 0.0069
+Mittlere_Absolute_Abweichung_x: 0.0055
+Mittlere_Absolute_Abweichung_z: 0.0034
+Variance_y: 0.0031
+Variance_x: 0.0027
+Median_x: 0.0026
+Mittelwert_y: 0.0026
+Schiefe_z: 0.0026
+Mittlere_Absolute_Abweichung_y: 0.0024
+Woehlbung_y: 0.0020
+Effektivwert_x: 0.0020
+Standardabweichung_y: 0.0018
+Median_y: 0.0016
+Woehlbung_z: 0.0011
+Schiefe_y: 0.0010
+Woehlbung_x: 0.0010
+Schiefe_x: 0.0008
+Zentrales_Moment_z: 0.0000
+Zentrales_Moment_x: 0.0000
+Zentrales_Moment_y: 0.0000
