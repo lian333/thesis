@@ -81,3 +81,4 @@ with open('best_parameters_axis1.txt', 'a') as f:
 
 # Save the best model
 dump(model.best_estimator_, 'best_xgboost_modeltestaxis1.joblib')
+# Load the best model and plot the important features
