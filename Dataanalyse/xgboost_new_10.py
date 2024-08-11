@@ -69,7 +69,7 @@ best_parameters = model.best_estimator_.get_params()
 for param_name in sorted(param_grid.keys()):
     print(f"\t{param_name}: {best_parameters[param_name]}")
 # save the best parameters in a file
-with open('best_10parameters_axis1.txt', 'w') as f:
+with open('best_10_parameters_axis1.txt', 'w') as f:
     f.write(f"Best score: {model.best_score_}\n")
     for param_name in sorted(param_grid.keys()):
         f.write(f"\t{param_name}: {best_parameters[param_name]}\n")
@@ -80,5 +80,5 @@ top_features = [(features[i], importances[i]) for i in indices]
 
 
 # Save the best model
-dump(model.best_estimator_, '10_best_xgboost_modeltestaxis1.joblib')
+dump(model.best_estimator_, 'best_xgboost_model_10features_axis1.joblib')
 # Load the best model and plot the important features
