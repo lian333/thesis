@@ -10,7 +10,6 @@ import pandas as pd
 path=r'D:\studydata\Masterarbeit\lian333\Thesis\Dataanalyse\all_data_axis1.csv'
 df = dd.read_csv(path)
 df=pd.DataFrame(df.compute())
-df = df[900000:1000000]
 #open feature_important_axis1.json
 import json
 with open(r'D:\studydata\Masterarbeit\lian333\Thesis\syntheic_data\feature_important_axis1.json') as f:
@@ -21,7 +20,15 @@ features=feature_important_axis1
 #features = [f for f in df.columns if f not in ['Schadensklasse', 'Timestamp', 'ID','Date']]
 
 # Define the XGBoost classifier
-classifier = xgb.XGBClassifier(use_label_encoder=False, eval_metric='mlogloss', num_class=3)
+classifier = xgb.XGBClassifier(
+    use_label_encoder=False, 
+    eval_metric='mlogloss', 
+    num_class=3,
+    
+    tree_method='hist',  # Use histogram-based algorithm
+    device='cuda'  # Enable GPU acceleration   
+    
+    )
 
 # Define the parameter grid
 param_grid = {
@@ -40,7 +47,7 @@ model = RandomizedSearchCV(
     scoring="accuracy",
     n_jobs=1,
     cv=5,
-    n_iter=1
+    n_iter=100
 )
 start_time = time.time()
 
