@@ -1,0 +1,7 @@
+Best score: 0.9991930372247229
+	colsample_bytree: 1.0000000000000004
+	gamma: 3
+	learning_rate: 0.2899999999999999
+	max_depth: 14
+	n_estimators: 500
+	subsample: 0.55

@@ -7,12 +7,12 @@ import numpy as np
 import time
 import pandas as pd
 # Load the data in chunks
-path=r'D:\studydata\Masterarbeit\lian333\Thesis\Dataanalyse\all_data_axis1.csv'
+path=r'D:\studydata\Masterarbeit\lian333\Thesis\Dataanalyse\all_data_axis2.csv'
 df = dd.read_csv(path)
-df=pd.DataFrame(df.compute())
+#df=pd.DataFrame(df.compute())
 #open feature_important_axis1.json
 import json
-with open(r'D:\studydata\Masterarbeit\lian333\Thesis\syntheic_data\feature_important_axis1.json') as f:
+with open(r'D:\studydata\Masterarbeit\lian333\Thesis\syntheic_data\feature_important_axis2.json') as f:
     feature_important_axis1 = json.load(f)
 
 features=feature_important_axis1
@@ -69,7 +69,7 @@ best_parameters = model.best_estimator_.get_params()
 for param_name in sorted(param_grid.keys()):
     print(f"\t{param_name}: {best_parameters[param_name]}")
 # save the best parameters in a file
-with open('best_10_parameters_axis1.txt', 'w') as f:
+with open('best_10_parameters_axis2.txt', 'w') as f:
     f.write(f"Best score: {model.best_score_}\n")
     for param_name in sorted(param_grid.keys()):
         f.write(f"\t{param_name}: {best_parameters[param_name]}\n")
@@ -80,5 +80,5 @@ top_features = [(features[i], importances[i]) for i in indices]
 
 
 # Save the best model
-dump(model.best_estimator_, 'best_xgboost_model_10features_axis1.joblib')
+dump(model.best_estimator_, 'best_xgboost_model_10_axis2.joblib')
 # Load the best model and plot the important features
