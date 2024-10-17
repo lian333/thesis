@@ -79,5 +79,5 @@ with open('best_parameters_axis1.txt', 'a') as f:
         f.write(f"{feature}: {importance:.4f}\n")
 
 # Save the best model
-dump(model.best_estimator_, 'best_xgboost_modeltestaxis1.joblib')
+dump(model.best_estimator_, 'best_xgboost_model_27_axis1.joblib')
 # Load the best model and plot the important features
