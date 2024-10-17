@@ -7,8 +7,7 @@ import numpy as np
 import time
 
 # Load the data in chunks
-path=r'D:\studydata\Masterarbeit\lian333\Thesis\Dataanalyse\all_data_axis1.csv'
-#path=r'D:\studydata\Masterarbeit\lian333\Thesis\Dataanalyse\axis2_demo_tablepart1_0.csv'
+path='../THESIS/Dataanalyse/all_data_axis1.csv'
 df = dd.read_csv(path)
 
 
