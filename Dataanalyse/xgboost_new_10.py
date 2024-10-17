@@ -7,25 +7,25 @@ import numpy as np
 import time
 import torch
 import pandas as pd
-# Load the data in chunks
-path=r'D:\studydata\Masterarbeit\lian333\Thesis\Dataanalyse\all_data_axis2.csv'
-df = dd.read_csv(path)
-#df=pd.DataFrame(df.compute())
-#open feature_important_axis1.json
 import json
-with open(r'D:\studydata\Masterarbeit\lian333\Thesis\syntheic_data\feature_important_axis2.json') as f:
+
+# Load the data in chunks
+
+path='../THESIS/Dataanalyse/all_data_axis2.csv'
+df = dd.read_csv(path)
+
+#open feature_important_axis1.json
+with open('../Thesis/syntheic_data/feature_important_axis2.json') as f:
     feature_important_axis1 = json.load(f)
 
 features=feature_important_axis1
-
-#features = [f for f in df.columns if f not in ['Schadensklasse', 'Timestamp', 'ID','Date']]
 
 # Define the XGBoost classifier
 classifier = xgb.XGBClassifier(
     use_label_encoder=False, 
     eval_metric='mlogloss', 
     num_class=3,
-    
+
     tree_method='hist',  # Use histogram-based algorithm
     device='cuda'  # Enable GPU acceleration   
     
